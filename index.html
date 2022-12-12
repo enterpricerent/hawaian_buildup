@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title> Build Up Limited </title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100;200;300;400;600;700;800&family=Fuzzy+Bubbles:wght@400;700&display=swap"
+			rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+			integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+		<style>
+			:root{
+    --grey: #d9d8da4d;
+    --shades: rgb(61, 60, 60);
+}
+*, **{
+    margin: 0;
+    padding : 0;
+    box-sizing: border-box;
+}
+
+html{
+    background-color: var(--grey);
+}
+section{
+    padding-bottom: 5rem;
+}
+td{
+    margin-bottom: 1rem;
+}
+
+.search-input{
+    width: 80%;
+    height: 3rem;
+    outline: none;
+    margin-top: 1rem;
+    border-radius: 3px;
+    border: 1px solid gainsboro;
+    background-color: white;
+}
+.search-input input{
+    width: 90%;
+    height: inherit;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.search-input .bi{
+    width: 10%;
+    font-size: x-large;
+    font-weight: bolder;
+    height: 90;
+}
+.heavy{
+    font-weight: bold;
+}
+.icon{
+    font-size: 3rem;
+}
+.number{
+    font-size: larger;
+}
+.scroll-music {
+    overflow-x: scroll;
+    /* height: 450px; */
+    padding: 20px;
+    display: flex;
+    scroll-snap-type: mandatory;
+    scroll-padding: 24px;
+    gap: 1px;
+    border-radius: 8px;
+}
+
+.scroll-music .item {
+    width: 200px;
+    height: 450px;
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    padding: 24px 5px;
+    border-radius: 10px;
+    scroll-snap-align: start;
+}
+
+.scroll-music .item img {
+    width: 100%;
+}
+.home-card{
+    border: none;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    box-shadow: 0 0 7px 1px;
+    overflow: hidden;
+}
+.register-page{
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.register-page .logincard{
+    width: 600px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    box-shadow: 0 0 5px .5px var(--shades);
+}
+.register-page .logincard form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.register-page .logincard form input{
+    width: 100%;
+    height: 3rem;
+    outline: none;
+    margin-top: 1rem;
+    border-radius: 3px;
+    border: 1px solid gainsboro;
+}
+.register-page .logincard form button{
+    width: 50%;
+}
+.account-page{
+    background-color: var(--grey);
+}
+.ap-inner{
+    padding-top: 4rem;
+    justify-content: space-between;
+    gap: 2rem;
+}
+.image-container{
+    box-shadow: 0 0 5px .5px var(--shades);
+    border-radius: 3px;
+    background-color: transparent;
+    height: fit-content;
+}
+
+/* Slideshow container */
+.slideshow-container {
+    position: relative;
+    margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1s;
+    animation-name: fade;
+    animation-duration: 1s;
+}
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.reciept-container{
+    background-color: white;
+    font-family: 'Anek Devanagari', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: 0 0 5px .5px var(--shades);
+    gap: 1rem;
+    height: fit-content;
+    user-select: none;
+    margin-bottom: 2rem;
+}
+.reciept-container .header{
+    font-size: 3rem;
+    font-weight: bolder;
+}
+.reciept-container .row{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.reciept-container .row .col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.reciept-container button{
+    border-radius: 3px;
+    font-size: larger;
+    font-weight: 600;
+    box-shadow: 0 0 5px .5px var(--shades);
+}
+
+.options{
+    display: flex;
+    padding: 0;
+    justify-content: space-around;
+    align-items: center;
+}
+.options span{
+    padding: .5rem;
+    font-size: large;
+    font-weight: 600;
+}
+.sl{
+    cursor: pointer;
+}
+.later{
+    border:none;
+    color: black;
+}
+.active{
+    display: block;
+}
+.current{
+    border-bottom: 2px solid rgb(44, 42, 42);
+    color: white;
+}
+
+.contact-agent{
+    background-color: crimson;
+    font-weight: 600;
+    border-radius: 3px;
+    color: white;
+    border: none;
+    outline: none;
+    padding: .5rem;
+    margin: 1rem 0;
+}
+.cancel-section:hover{
+	background-color: #71717153;
+	border-radius: 50%;
+	padding: .4rem .9rem;
+	fill: black;
+}
+		</style>
+		
+	</head>
+	<body>
+		<section class="container register-page align-items-center">
+			<div class="d-flex align-items-center justify-content-center">
+				<div class="logincard p-2">
+					<div><h1 class=" heavy">Login Account</h1></div>
+
+					<form action="" class="row">
+						<input type="text" placeholder="Email" id="email">
+						<input type="password" placeholder="Password" id="password">
+						<span class="text-primary" style="font-size:12px;"><a href="" style="text-decoration: none;margin-top:10px;">Forgot password?</a> </span> <br>
+						<button type="button" class="btn btn-primary" onclick="login()">Login</button>
+					</form>
+				</div>
+			</div>
+		</section>
+
+
+		<section class="account-page bg-primary" style="display: none;">
+
+			<nav class="navbar navbar-expand-md bg-dark navbar-dark py-1 position-fixed w-100" style="z-index: 3;">
+				<div class="container">
+					<a class="navbar-brand text-light" href="#" style="width:50px;height:50px;">
+						BuildUp
+					</a>
+			
+					<button class="navbar-toggler" type="button" data-bs-toggle='collapse' data-bs-target='#navmenu'>
+						<span class="navbar-toggler-icon text-light"></span>
+					</button>
+			
+					<div class="collapse navbar-collapse" id="navmenu">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item" onclick="back()">
+								<a href='#' class="nav-link">Home</a>
+							</li>
+							<li class="nav-item" onclick="back()">
+								<a href="#about" class="nav-link">About</a>
+							</li>
+							<li class="nav-item" onclick="back()">
+								<a href="#services" class="nav-link">Services</a>
+							</li>
+							<li class="nav-item" onclick="showAccount()">
+								<a href="#account" class="nav-link">Account</a>
+							</li>
+							<li class="nav-item d-flex justify-content-center">
+								<button type="button" class="p-2 nav-link btn btn-primary" style="color: white;" onclick="logout()">Log out</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav> 
+			<!-- Home Page -->
+			<section class="home-page">
+				<section class=" songs text-light py-2" id="#songs">
+					<div class=" container search-tool w-100 my-5 d-flex justify-content-center align-items-center">
+						<div class="search-input d-flex justify-content-space-between align-items-center">
+							<input type="text" class="p-2" placeholder="Address, School, City, Zip or Neighbourhood">
+							<div class="bi bi-search text-primary text-center m-3"></div>
+						</div>
+					</div>
+					<div class="container">
+						<div class="d-md-flex text-light align-items-center">
+							<div class="scroll-music d-flex p-3 bg-dark" style="max-width: 500px;">
+								<a href="" class='item'><img
+										src="./img/01.webp"
+										alt=""></a>
+								<a href="" class='item'><img
+										src="./img/02.webp"
+										alt=""></a>
+							</div>
+				
+							<div class="p-5">
+								<div class="h1 text-md-end">
+									Available <span class="text-warning" style="font-weight: bold;"> Houses</span>
+									<i class="bi bi-spotify"></i>
+								</div>
+								<br>
+								<p class="text-md-end" style="font-size: 1.2rem;">No matter what stage of the home journey you may be in, <br> we're here to empower you by making all things home <br> <span style="font-weight: bold; color: orange;">simple, efficient, and enjoyable.</span></p>
+								<div class=" text-dark d-flex" style="gap: 10%; justify-content: space-around;">
+				
+								</div>
+								<div>
+									<a href="" class="text-light"><i class="bi bi-apple"></i></a>
+									<a href="" class="text-dark"><i class="bi bi-spotify"></i></a>
+								</div>
+							</div>
+						</div>
+				
+					</div>
+				</section>
+				
+				<!-- About Artist -->
+				<section id="about" class="py-5 bg-dark text-light">
+					<div class="container">
+						<div class="d-md-flex align-items-center ">
+							<div class="col px-5 py-2">
+								<h1>About</h1>
+								<p class="lead">For years, millions of hawaian home shoppers have turned to us to find their dream home.</p>
+								<p>We also offer homeowners a bevy of useful tools and resources through the Account dashboard. This allows property investment it is by tracking their home's value over time, researching and managing home improvements and scouting other similar properties in the neighbourhood.</p>
+								<a href="#"><span>Read More</span></a>
+							</div>
+							<div class="col px-5 py-2 text-center">
+								<div class="slide-container">
+									<div class="slides text-center">
+										<div class="artist-links text-dark lead">
+											<a href="#"><i class="bi bi-facebook"></i></a>
+											<a href="#"><i class="bi bi-instagram"></i></a>
+											<a href="#"><i class="bi bi-twitter"></i></a>
+											<a href="#"><i class="bi bi-envelope"></i></a>
+										</div>
+										<img src="./img/03.webp" alt="" class="artiste-img w-100">
+				
+									</div>
+								</div>
+				
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<section class="upcoming bg-light text-dark py-5" id="services">
+					<div class="container">
+						<div class="d-md-flex text-center gap-2 align-items-center">
+							<div class="card av-home-card col-md bg-light text-dark p-0 m-auto my-3" style="max-width: 250px;">
+								<div class="h2 row">
+									<img src="./img/05.webp" alt="">
+								</div>
+								<div class="card-body" style="display: flex;flex-direction: column;gap:4px;">
+									<span class="card-text"><b>$320,000</b></span>
+									<span class="card-text">
+										<span><b>2</b> bed </span>
+										<span> <b>2</b> bath </span>
+										<span> <b>896</b> sqft</span>
+									</span>
+									<span class="card-text" style="font-size: 0.8rem;">2008 Rexford A Unit 2008</span>
+									<span class="card-text" style="font-size: 0.8rem;"> Boca Raton, FL 33434</span>
+								</div>
+							</div>
+							<div class="card av-home-card col-md bg-light text-dark p-0 m-auto my-3" style="max-width: 250px;">
+								<div class="h2 row">
+									<img src="./img/01.webp" alt="">
+								</div>
+								<div class="card-body" style="display: flex;flex-direction: column;gap:4px;">
+									<span class="card-text"><b>$320,000</b></span>
+									<span class="card-text">
+										<span><b>2</b> bed </span>
+										<span> <b>2</b> bath </span>
+										<span> <b>896</b> sqft</span>
+									</span>
+									<span class="card-text" style="font-size: 0.8rem;">2008 Rexford A Unit 2008</span>
+									<span class="card-text" style="font-size: 0.8rem;"> Boca Raton, FL 33434</span>
+								</div>
+							</div>
+							<div class="card av-home-card col-md bg-light text-dark p-0 m-auto my-3" style="max-width: 250px;">
+								<div class="h2 row">
+									<img src="./img/04.webp" alt="">
+								</div>
+								<div class="card-body" style="display: flex;flex-direction: column;gap:4px;">
+									<span class="card-text"><b>$320,000</b></span>
+									<span class="card-text">
+										<span><b>2</b> bed </span>
+										<span> <b>2</b> bath </span>
+										<span> <b>896</b> sqft</span>
+									</span>
+									<span class="card-text" style="font-size: 0.8rem;">2008 Rexford A Unit 2008</span>
+									<span class="card-text" style="font-size: 0.8rem;"> Boca Raton, FL 33434</span>
+								</div>
+							</div>
+							<div class="card home-card col-md bg-light text-dark p-0 m-auto my-3" style="max-width: 250px;">
+								<div class="h2 row">
+									<img src="./img/03.webp" alt="">
+								</div>
+								<div class="card-body" style="display: flex;flex-direction: column;gap:4px;">
+									<span class="card-text"><b>$320,000</b></span>
+									<span class="card-text">
+										<span><b>2</b> bed </span>
+										<span> <b>2</b> bath </span>
+										<span> <b>896</b> sqft</span>
+									</span>
+									<span class="card-text" style="font-size: 0.8rem;">2008 Rexford A Unit 2008</span>
+									<span class="card-text" style="font-size: 0.8rem;"> Boca Raton, FL 33434</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<footer class="bg-dark text-light">
+					<div class="container d-flex position-relative p-5">
+						<span class="flex-start">Copyright &copy; 1990-2022 Hawaian BuildUp and Move.inc. All rights reserved</span>
+						<a href="#" class="position-absolute end-0 me-3"><i
+								class="bi bi-arrow-up-circle-fill lead text-warning"></i></a>
+					</div>
+				
+				</footer>
+			</section>
+
+			
+
+
+
+			<div class="container ap-inner" style="display: none;">
+				<div class="options container p-0">
+					<span class="sl cart-link current">CART</span>
+					<span class="sl sold-link">SOLD</span>
+					<span class="sl pending-link">PENDING</span>
+				</div>
+
+				<section class="s sold" style="display: none;font-size: larger;height: 80vh;font-weight: bolder;">
+					<div class="container h-100 d-flex justify-content-center align-items-center" style="box-shadow: 0 0 5px .5px var(--shades);">
+						NOTHING SOLD YET...
+					</div>
+				</section>
+				<section class="s pending" style="display: none;">
+					<div class="container">
+						<div class="card home-card col-md bg-light text-dark p-0 m-auto my-3" style="max-width: 900px;">
+							<div class="image-container row">
+								<div class="scroll-music d-flex p-3 bg-dark" style="width: 100%;">
+									<a href="" class='item'><img src="./img/house_3/1.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_3/2.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_3/3.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_3/4.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_3/5.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_3/6.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_3/7.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_3/8.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_3/9.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_3/10.jpeg" alt=""></a>
+								</div>
+							
+							</div>
+							<div class="card-body bg-light p-3" style="display: flex;flex-direction: column;gap:4px;align-items: center;">
+								<span><b>Payment Made : <span style="font-size:1.5rem ;color: green;">$182,000.00</span> </b> </span>
+
+								<br>
+
+								<span><b>Outstanding : <span style="font-size:1.5rem ;color:crimson;">$183,000.00</span> </b> </span>
+							</div>
+							<br><br>
+					</div>
+					<br><br>
+					<div class="receipt">
+						<!--receipt container-->
+						<div class="reciept-container px-5 py-2">
+							<div class="header row d-flex"><span>Information</span></div>
+							<div class="row">
+								<div class="col number heavy">$395,000</div>
+								<div class="col">
+									<span class="heavy number">Est.</span>
+									<span>$30,000/mo</span>
+								</div>
+							</div>
+							<hr>
+						
+							<table>
+								<tr style="display: flex;gap:1rem;text-align: center;">
+									<td class="col">
+										<span class="number heavy">3</span><br>
+										<span class="text-secondary">bed</span>
+									</td>
+									<td class="col">
+										<span class="number heavy">3</span><br>
+										<span class="text-secondary">bath</span>
+									</td>
+									<td class="col">
+										<span class="number heavy">1,998</span><br>
+										<span class="text-secondary">sqft</span>
+									</td>
+									<td class="col">
+										<span class="number heavy">0.52</span><br>
+										<span class="text-secondary">acre lot</span>
+									</td>
+								</tr>
+							</table>
+							<hr>
+						
+							<div class="row">
+								<span><a
+										href="https://www.google.com/search?q=1+Keahole+PI+APT+3512%2C+Honolulu%2C+HI+96825&oq=1+Keahole+PI+APT+3512%2C+Honolulu%2C+HI+96825&aqs=chrome..69i57j0i546l4.818j0j7&sourceid=chrome&ie=UTF-8#">1 Keahole PI APT 3512, Honolulu, HI 96825</a> </span>
+							</div>
+						
+							<div class="row">
+								<table>
+									<tr>
+										<td class="col">
+											<span class="icon">
+												<i class="bi bi-people-fill"></i>
+											</span>
+											<span class="words">
+												<span class="heavy">Single Family</span><br>
+												<span class="text-secondary">Property Type
+												</span>
+											</span>
+										</td>
+										<td class="col">
+											<span class="icon"><i class="bi bi-rulers"></i></span>
+											<span class="words">
+												<span class="heavy">$221</span><br>
+												<span class="text-secondary">Price per sqft</span>
+											</span>
+										</td>
+										<td class="col">
+											<span class="icon"><i class="bi bi-hammer"></i> </span>
+											<span class="words">
+												<span class="heavy">1950</span><br>
+												<span class="text-secondary">Year Built</span>
+											</span>
+										</td>
+									</tr>
+						
+								</table>
+						
+							</div>
+							<hr>
+						
+							<div class="row">
+								<button type="button" class="receipt-btn btn btn-info text-light p-2 w-50">Receipt</button>
+							</div>
+						
+						</div>
+									
+					</div>
+				</div>
+				</section>
+				<section class="s cart active bg-dark text-dark py-2" id="services">
+					<div class="container">
+						<div class="d-md-flex text-center gap-2 align-items-center">
+							<div class="card  col-md bg-light text-dark p-0 m-auto my-3" style="max-width: 250px;">
+									<div class="h2 image-container row">
+										<div class="scroll-music d-flex bg-dark" style="height: inherit;width: fit-content;padding: 0;">
+											<a href="" class='item'><img src="./img/house_1/1.jpeg" alt=""></a>
+											<a href="" class='item'><img src="./img/house_1/2.jpeg" alt=""></a>
+											<a href="" class='item'><img src="./img/house_1/3.jpeg" alt=""></a>
+											<a href="" class='item'><img src="./img/house_1/4.jpeg" alt=""></a>
+											<a href="" class='item'><img src="./img/house_1/5.jpeg" alt=""></a>
+											<a href="" class='item'><img src="./img/house_1/6.jpeg" alt=""></a>
+											<a href="" class='item'><img src="./img/house_1/7.jpeg" alt=""></a>
+											<a href="" class='item'><img src="./img/house_1/8.jpeg" alt=""></a>
+											<a href="" class='item'><img src="./img/house_1/9.jpeg" alt=""></a>
+											<a href="" class='item'><img src="./img/house_1/10.jpeg" alt=""></a>
+											<a href="" class='item'><img src="./img/house_1/11.jpeg" alt=""></a>
+											<a href="" class='item'><img src="./img/house_1/12.jpeg" alt=""></a>
+											<a href="" class='item'><img src="./img/house_1/13.jpeg" alt=""></a>
+										</div>
+									</div>
+								<div class="card-body" style="display: flex;flex-direction: column;gap:4px;">
+									<span class="card-text"><b>$4,700,000</b></span>
+									<span class="card-text">
+										<span><b>4</b> bed </span>
+										<span> <b>4</b> bath </span>
+										<span> <b>1,840</b> sqft</span>
+									</span>
+									<span class="card-text" style="font-size: 0.8rem;">Single family residence</span>
+									<span class="card-text" style="font-size: 0.8rem;"> 230 Paiko Dr,Honolulu, HI 96821</span>
+								</div>
+
+								<div>
+									<button class="contact-agent">Contact</button>
+								</div>
+							</div>
+							
+							<br><br>
+							<div class="card home-card col-md bg-light text-dark p-0 m-auto my-3" style="max-width: 250px;">
+								<div class="h2 image-container row">
+									<div class="scroll-music d-flex bg-dark" style="height: inherit;width: fit-content;padding: 0;">
+										<a href="" class='item'><img src="./img/house_2/1.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_2/2.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_2/3.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_2/4.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_2/5.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_2/6.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_2/7.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_2/8.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_2/9.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_2/10.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_2/11.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_2/12.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_2/13.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_2/14.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_2/15.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_2/16.jpeg" alt=""></a>
+									</div>
+								</div>
+								<div class="card-body" style="display: flex;flex-direction: column;gap:4px;">
+									<span class="card-text"><b>$295,000</b></span>
+									<span class="card-text">
+										<span><b>2</b> bed </span>
+										<span> <b>2</b> bath </span>
+										<span> <b>1,180</b> sqft</span>
+									</span>
+									<span class="card-text" style="font-size: 0.8rem;">Single family residence</span>
+									<span class="card-text" style="font-size: 0.8rem;"> 1860 Ala Moana Blvd APT 1707, Honolulu, HI 96815 </span>
+									<div>
+										<button class="contact-agent">Contact</button>
+									</div>
+								</div>
+							</div>
+
+							<br><br>
+							<div class="card home-card col-md bg-light text-dark p-0 m-auto my-3" style="max-width: 250px;">
+								<div class="h2 image-container row">
+									<div class="scroll-music d-flex bg-dark" style="height: inherit;width: fit-content;padding: 0;">
+										<a href="" class='item'><img src="./img/house_3/1.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_3/2.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_3/3.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_3/4.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_3/5.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_3/6.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_3/7.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_3/8.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_3/9.jpeg" alt=""></a>
+										<a href="" class='item'><img src="./img/house_3/10.jpeg" alt=""></a>
+									</div>
+								</div>
+								<div class="card-body" style="display: flex;flex-direction: column;gap:4px;">
+									<span class="card-text"><b>$395,000</b></span>
+									<span class="card-text">
+										<span><b>3</b> bed </span>
+										<span> <b>3</b> bath </span>
+										<span> <b>1,998</b> sqft</span>
+									</span>
+									<span class="card-text" style="font-size: 0.8rem;">Single family residence</span>
+									<span class="card-text" style="font-size: 0.8rem;"> 1 Keahole PI APT 3512, Honolulu, HI 96825</span>
+								</div>
+								<div>
+									<button class="contact-agent">Contact</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				
+				
+
+				
+				
+			</div>
+		</section>
+		<section class="popup" style="display:none;position:fixed;top:0;left:0;right:0;background-color: rgba(221,221,221,0.8);height:100vh;width:100vw;justify-content:center;align-items:center;flex-direction: column-reverse;gap: 2rem;">
+			<div class="cancel-section">
+                <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="2em" height="3em" class="cancel-btn"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.56 6.44a1.5 1.5 0 1 0-2.12 2.12L9.878 12l-3.44 3.44a1.5 1.5 0 0 0 2.122 2.12L12 14.122l3.44 3.44a1.5 1.5 0 0 0 2.12-2.122L14.122 12l3.44-3.44a1.5 1.5 0 0 0-2.122-2.12L12 9.878l-3.44-3.44Z" fill="currentColor"></path></svg>
+            </div>
+			<div class="card d-flex text-center p-4" style="width: 300px;">
+				<div><span style="color:crimson">23ae97ea0860eaaa77hae677</span></div>
+				<br>
+				<div><span>Please send your ID to this email and an agent will get back to you there</span></div>
+				<br>
+				<div><span style="color: blue;font-weight: bold;">Mr. Karl Stanley</span></div>
+				<div><span style="color: blue;font-weight: bold;">karlstan33@gmail.com</span></div>
+			</div>
+		</section>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+			crossorigin="anonymous"></script>
+		<script>
+			let email = document.querySelector("#email");
+				let password = document.querySelector("#password");
+				let loginPage = document.querySelector(".register-page");
+				let accountPage = document.querySelector(".account-page");
+				let homePage = document.querySelector(".home-page");
+				let userPage = document.querySelector(".ap-inner");
+				let spanLinks = document.querySelectorAll(".sl");
+				let spanDiv = document.querySelectorAll(".s");
+				let receiptBtn = document.querySelector('.receipt-btn');
+				let receiptDiv = document.querySelector('.receipt')
+				let popupDiv = document.querySelector('.popup')
+				let cancelSection = document.querySelector('.cancel-section')
+				let showAgent = document.querySelectorAll('.contact-agent')
+
+				const valid = {
+					email: "sh.morison61@gmail.com",
+					password: "scottmorison99",
+				};
+
+				function login() {
+					if (email.value == valid.email && password.value == valid.password) {
+						accountPage.style.display = "block";
+						loginPage.style.display = "none";
+					} else {
+						alert("Invalid Email or Password");
+					}
+				}
+				function logout() {
+					accountPage.style.display = "none";
+					loginPage.style.display = "flex";
+				}
+				function showReciept() { }
+
+				function showAccount() {
+					userPage.style.display = "block";
+					homePage.style.display = "none";
+				}
+				function back() {
+					userPage.style.display = "none";
+					homePage.style.display = "block";
+				}
+
+				spanLinks.forEach((link) => {
+					link.addEventListener("click", (e) => {
+						let divId = e.target.innerHTML.toLowerCase();
+						console.log(e);
+						spanLinks.forEach((ele) => {
+							if (ele.classList[1].split("-")[0] == divId) {
+								ele.classList.value += " current";
+							} else {
+								ele.classList[2] += "later";
+							}
+						});
+						spanDiv.forEach((div) => {
+							if (div.classList[1] == divId) {
+								div.style.display = "block";
+							} else {
+								div.style.display = "none";
+							}
+						});
+						console.log(e.target.innerHTML.toLowerCase());
+					});
+				});
+
+
+
+				receiptBtn.addEventListener('click', e => {
+					popupDiv.style.display = 'flex'
+				})
+				cancelSection.addEventListener('click', e => {
+					popupDiv.style.display = 'none';
+				})
+
+				showAgent.forEach(btn => {
+					btn.addEventListener('click', e => {
+						popupDiv.style.display = 'flex'
+					})
+				})
+
+
+		</script>
+	</body>
+</html>
